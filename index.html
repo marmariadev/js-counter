@@ -17,16 +17,23 @@
         const reset = document.getElementById('reset');
 
         let count = 0;
+        updateCounter();
 
         increment.addEventListener('click', () => {
             count++;
-            counter.textContent = count;;
+            updateCounter();
         });
 
         reset.addEventListener('click', () => {
             count = 0;
-            counter.textContent = count;
+            updateCounter();
         });
+
+        function updateCounter() {
+            counter.textContent = count;
+            reset.disabled = count === 0;
+        }
+
     </script>
 </body>
 
